@@ -1,3 +1,4 @@
+var path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
 	entry: {
@@ -5,20 +6,21 @@ module.exports = {
 	},
 	output: {
 		filename: "assets/js/[name][hash].js",
-		path: __dirname+ "/dist"
+		path: __dirname + "/dist"
 	},
 	devtool: "source-map",
 	resolve: {
-		extensions: [".ts",".tsx",".js",".json"]
+		extensions: [".ts", ".tsx", ".js", ".json"]
 	},
 	module: {
 		rules: [
-			{ test:/\.tsx?$/,loader: "awesome-typescript-loader" },
+			{ test: /\.tsx?$/, loader: "awesome-typescript-loader" },
 		]
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: "./src/index.html"
 		})
-	]
+	],
+	watch: false,
 }
